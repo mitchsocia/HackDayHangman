@@ -18,6 +18,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     var guessedCharacter = ""
     var isInWord = false
     var livesCounter = 3
+    var wordToGuess = ["_","_","_","_","_"]
+    var wordArray: [Character] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,11 +44,18 @@ class ViewController: UIViewController, UITextFieldDelegate {
         print("Starting guess")
         let characterGuess: Character = Character(guess)
         print("Character guess: \(characterGuess)")
-        for character in word {
+        for (index, character) in word.enumerated() {
+
             if characterGuess == character {
                 print("character: \(character)")
                 isInWord = true
                 
+                wordToGuess[index] = String(character)
+                let updatedWord = wordToGuess.map{ String($0) }.joined(separator: " ")
+                wordToGuessLabel.text = String(updatedWord)
+                
+                print("Current wordToGuess: \(wordToGuess)")
+      
                 UIView.animate(withDuration: 0.5, animations: {
                     self.view.backgroundColor = UIColor.green
                 }, completion: {_ in self.view.backgroundColor = UIColor.white})
