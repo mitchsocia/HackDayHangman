@@ -32,6 +32,10 @@ class ViewController: UIViewController {
         for character in word {
             if characterGuess == character {
                 isInWord = true
+                print(isInWord)
+            } else {
+                isInWord = false
+                print(isInWord)
             }
             
         }
