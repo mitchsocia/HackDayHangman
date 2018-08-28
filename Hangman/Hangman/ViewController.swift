@@ -10,6 +10,13 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var wordToGuessLabel: UILabel!
+    @IBOutlet weak var guessInput: UITextField!
+    
+    let word = "swift"
+    var guessedCharacter = ""
+    var isInWord = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -19,7 +26,24 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func checkGuess(guess: String) {
+        let characterGuess: Character = Character(guess)
+        for character in word {
+            if characterGuess == character {
+                isInWord = true
+            }
+            
+        }
+    }
 
-
+    @IBAction func guessButton(_ sender: UIButton) {
+        if let guess = guessInput.text {
+            checkGuess(guess: guess)
+            
+        }
+    }
+    
+    
 }
 
