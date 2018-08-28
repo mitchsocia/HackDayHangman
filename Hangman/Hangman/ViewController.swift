@@ -12,10 +12,12 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var wordToGuessLabel: UILabel!
     @IBOutlet weak var guessInput: UITextField!
+    @IBOutlet weak var livesCounterLabel: UILabel!
     
     let word = "swift"
     var guessedCharacter = ""
     var isInWord = false
+    var livesCounter = 3
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,9 +46,13 @@ class ViewController: UIViewController {
                 print(isInWord)
                 //break
             }
-            
+        }
+        if isInWord == false{
+            livesCounter -= 1
+            livesCounterLabel.text = String(livesCounter)
         }
     }
+        
 
     @IBAction func guessButton(_ sender: UIButton) {
         if let guess = guessInput.text {
