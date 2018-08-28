@@ -46,6 +46,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
             if characterGuess == character {
                 print("character: \(character)")
                 isInWord = true
+                
+                UIView.animate(withDuration: 0.5, animations: {
+                    self.view.backgroundColor = UIColor.green
+                }, completion: {_ in self.view.backgroundColor = UIColor.white})
+                
                 print(isInWord)
                 break
             } else {
@@ -56,6 +61,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 //break
             }
         }
+        UIView.animate(withDuration: 0.5, animations: {
+            self.view.backgroundColor = UIColor.red
+        }, completion: {_ in self.view.backgroundColor = UIColor.white})
         if isInWord == false{
             livesCounter -= 1
             livesCounterLabel.text = String(livesCounter)
