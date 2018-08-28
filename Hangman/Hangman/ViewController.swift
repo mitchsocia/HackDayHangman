@@ -32,6 +32,16 @@ class ViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    func startGame() {
+        guessedCharacter = ""
+        isInWord = false
+        livesCounter = 3
+        wordToGuess = ["_","_","_","_","_"]
+        wordArray = []
+        livesCounterLabel.text = String(livesCounter)
+        wordToGuessLabel.text = "Play Hangman!"
+    }
+    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let maxLength = 1
         let currentString: NSString = textField.text! as NSString
@@ -77,6 +87,31 @@ class ViewController: UIViewController, UITextFieldDelegate {
             livesCounter -= 1
             livesCounterLabel.text = String(livesCounter)
         }
+        
+        if livesCounter == 0 {
+            gameOver()
+        }
+        
+        if !wordToGuess.contains("_") {
+            youWin()
+        }
+    }
+    
+    func youWin() {
+        
+        let scoreAlert = UIAlertController(title: "You Win!", message: "You guessed it! Cool!", preferredStyle: .alert)
+        let continueAction = UIAlertAction(title: "Continue", style: .default) { (action:UIAlertAction!) in self.startGame() }
+        scoreAlert.addAction(continueAction)
+        self.present(scoreAlert, animated: true, completion:nil)
+    }
+    
+    
+    func gameOver() {
+       
+        let scoreAlert = UIAlertController(title: "Game Over", message: "Out of lives!", preferredStyle: .alert)
+        let continueAction = UIAlertAction(title: "Continue", style: .default) { (action:UIAlertAction!) in self.startGame() }
+        scoreAlert.addAction(continueAction)
+        self.present(scoreAlert, animated: true, completion:nil)
     }
         
 
@@ -85,6 +120,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             checkGuess(guess: guess)
             
         }
+        guessInput.text = ""
     }
     
     
