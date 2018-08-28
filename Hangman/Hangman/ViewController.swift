@@ -28,10 +28,21 @@ class ViewController: UIViewController {
     }
     
     func checkGuess(guess: String) {
+        print("Starting guess")
         let characterGuess: Character = Character(guess)
+        print("Character guess: \(characterGuess)")
         for character in word {
             if characterGuess == character {
+                print("character: \(character)")
                 isInWord = true
+                print(isInWord)
+                break
+            } else {
+              //  isInWord
+                print("character: \(character)")
+                isInWord = false
+                print(isInWord)
+                //break
             }
             
         }
