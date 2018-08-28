@@ -34,26 +34,43 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Play Hangman!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IB2-J2-81p">
-                                <rect key="frame" x="78" y="357" width="210" height="48"/>
+                                <rect key="frame" x="78" y="403" width="210" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="LIVES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="suX-Fa-qjM">
-                                <rect key="frame" x="47" y="107" width="92" height="50"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="LIVES" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="suX-Fa-qjM">
+                                <rect key="frame" x="141" y="560" width="92" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Circle_(transparent)" translatesAutoresizingMaskIntoConstraints="NO" id="aAZ-RF-fW7">
+                                <rect key="frame" x="67" y="124" width="240" height="203"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Unknown" translatesAutoresizingMaskIntoConstraints="NO" id="C9P-4Z-Eme">
+                                <rect key="frame" x="90" y="166" width="198" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.97046715021133423" green="0.89011073112487793" blue="0.96582859754562378" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="mouth" translatesAutoresizingMaskIntoConstraints="NO" id="5hx-a7-pWL">
+                                <rect key="frame" x="97" y="222" width="181" height="67"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.96095901727676392" green="0.95430165529251099" blue="0.85277748107910156" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="eyeImage" destination="C9P-4Z-Eme" id="Fsf-1L-pYi"/>
+                        <outlet property="faceImage" destination="aAZ-RF-fW7" id="hlr-Uf-9Jb"/>
                         <outlet property="guessInput" destination="Z86-kO-c3W" id="55g-3f-3hB"/>
                         <outlet property="livesCounterLabel" destination="suX-Fa-qjM" id="pxn-0n-5ux"/>
+                        <outlet property="mouthImage" destination="5hx-a7-pWL" id="EEy-UA-BCH"/>
                         <outlet property="wordToGuessLabel" destination="IB2-J2-81p" id="ok4-Vl-Gjt"/>
                     </connections>
                 </viewController>
@@ -62,4 +79,9 @@
             <point key="canvasLocation" x="136.80000000000001" y="132.26600985221674"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Circle_(transparent)" width="1024" height="1024"/>
+        <image name="Unknown" width="225" height="225"/>
+        <image name="mouth" width="900" height="900"/>
+    </resources>
 </document>

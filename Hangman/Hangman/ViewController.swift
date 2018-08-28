@@ -9,7 +9,10 @@
 import UIKit
 
 class ViewController: UIViewController, UITextFieldDelegate {
-
+    @IBOutlet weak var eyeImage: UIImageView!
+    @IBOutlet weak var mouthImage: UIImageView!
+    
+    @IBOutlet weak var faceImage: UIImageView!
     @IBOutlet weak var wordToGuessLabel: UILabel!
     @IBOutlet weak var guessInput: UITextField!
     @IBOutlet weak var livesCounterLabel: UILabel!
@@ -24,12 +27,22 @@ class ViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         guessInput.delegate = self
+        resetImage()
         // Do any additional setup after loading the view, typically from a nib.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func resetImage () {
+        let mouth = UIImage(named: "mouth")
+        let face = UIImage(named: "Circle_(transparent)")
+        let eyes = UIImage(named: "Unknown")
+        faceImage.isHidden = true
+        eyeImage.isHidden = true
+        mouthImage.isHidden = true
     }
     
     func startGame() {
@@ -86,6 +99,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
         if isInWord == false{
             livesCounter -= 1
             livesCounterLabel.text = String(livesCounter)
+            if livesCounter == 2 {
+                faceImage.isHidden = false
+            } else if livesCounter == 1 {
+                eyeImage.isHidden = false
+            } else if livesCounter == 0 {
+                mouthImage.isHidden = false
+            }
         }
         
         if livesCounter == 0 {
